@@ -1,20 +1,35 @@
+
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 	{
 		int t;
-		cin >>t;
+		do
+			{
+				cin >>t;
+			} while (t<=0||t>20);
 		while (t--)
 			{
-				string s;
-				cin >>s;
-				int count=0;
-				for (int i=0;i<=s.size()-2;i++)
+				string a[20];
+				cin >>a;
+				int b=a.length();
+				for (int i=0;i<b;i++)
 					{
-						if (abs(s[i+1]-s[i])!=1) count++;
+						if pow((a[i]-a[i+1]),2)==1
+							{
+								cout <<"YES"<<endl;
+								break;
+							}
+						else 
+							{
+								cout <<"NO"<<endl;
+								break;
+							}
+							
+					
 					}
-			if (count==0) cout <<"YES"<<endl;
-			else cout <<"NO"<<endl;		
-			}
-		
-	}
+					
+				}	
+		}	
+	
