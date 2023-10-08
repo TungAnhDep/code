@@ -7,3 +7,7 @@ Repository for code (mainly codeptit)
 watch tutorial on youtubeg
 
 Hello world
+
+Hieu beo tron
+
+Hieu non not
