@@ -223,16 +223,26 @@ public class CustomerForm {
     }
 
     private static void addCustomerToTable(Customer customer, DefaultTableModel tableModel) {
-        String[] rowData = {
-                customer.getCode(),
-                customer.getFirstName(),
-                customer.getLastName(),
-                customer.getBirthDate(),
-                customer.getType()
-        };
-        tableModel.addRow(rowData);
-        customerList.add(customer);
+        String customerCode = customer.getCode();
+
+        // Check if a customer with the same code already exists
+        boolean customerExists = customerList.stream().anyMatch(c -> c.getCode().equals(customerCode));
+
+        if (!customerExists) {
+            String[] rowData = {
+                    customer.getCode(),
+                    customer.getFirstName(),
+                    customer.getLastName(),
+                    customer.getBirthDate(),
+                    customer.getType()
+            };
+            tableModel.addRow(rowData);
+            customerList.add(customer);
+        } else {
+            JOptionPane.showMessageDialog(customerFrame, "Customer with the same code already exists.");
+        }
     }
+
 
     private static Date parseDate(String dateStr) {
         try {
